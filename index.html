@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Tri Wulan!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            z-index: 10;
+            border: 2px solid #e1bee7;
+        }
+
+        h1 { color: #8e24aa; margin-bottom: 10px; }
+        h2 { color: #d81b60; font-size: 1.2rem; }
+        
+        .age {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ba68c8;
+            margin: 10px 0;
+            text-shadow: 2px 2px #f8bbd0;
+        }
+
+        p { color: #616161; line-height: 1.6; }
+
+        .btn {
+            background: #ab47bc;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn:hover { background: #8e24aa; transform: scale(1.05); }
+
+        /* Hiasan Balon Sederhana */
+        .balloon {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: #f06292;
+            border-radius: 50%;
+            bottom: -100px;
+            animation: float 5s infinite ease-in;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(20deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="balloon-container"></div>
+
+    <div class="card">
+        <h2>Happy Sweet 16th! (katanya:v)</h2>
+        <h1>Tri Wulan</h1>
+        <div class="age">16 katanya:v</div>
+        <p>Selamat ulang tahun yang ke-16 (katanya:v), <b>Tri Wulan (Tige Bulan)</b>! ✨<br>
+        Semoga harimu penuh kebahagiaan, tawa, dan semua impianmu tercapai di usia yang baru ini.</p>
+        <button class="btn" onclick="celebrate()">Klik Untuk Kejutan!</button>
+    </div>
+
+    <script>
+        function celebrate() {
+            alert("🎉 Selamat Ulang Tahun Tri Wulan! 🎉 \nSemoga panjang umur dan sukses selalu!");
+            for(let i=0; i<20; i++) {
+                createBalloon();
+            }
+        }
+
+        function createBalloon() {
+            const container = document.getElementById('balloon-container');
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = Math.random() * 100 + 'vw';
+            balloon.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            balloon.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            container.appendChild(balloon);
+            
+            setTimeout(() => { balloon.remove(); }, 5000);
+        }
+    </script>
+</body>
+</html>
